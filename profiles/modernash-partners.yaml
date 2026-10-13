@@ -1,0 +1,85 @@
+# Opportunity profile: commercial partners for ModernAsh.
+# This is the profile used in the October 2026 seed campaign.
+id: modernash-partners
+kind: partners
+
+sender:
+  name: Fabián Agüero
+  title: Fundador
+  organization: ModernAsh
+  email: fabian@modern-ash.com
+  location: Buenos Aires
+  calendar_url: https://calendar.app.google/3bYiEMfqzLYwFbYQ6
+
+offer:
+  summary: >-
+    Ayudamos a equipos de desarrollo a incorporar IA de forma segura,
+    gobernada y con resultados medibles.
+  lines:
+    - name: AI-SDLC
+      pitch: >-
+        integramos IA generativa en todo el ciclo de desarrollo (planificación,
+        código, testing, revisión, despliegue y mejora). Tiene controles de
+        seguridad, secure coding asistido y métricas de impacto, para que no se
+        quede en "cada equipo usa Copilot como puede".
+    - name: Spec Driven Development (SDD)
+      pitch: >-
+        la especificación funciona como contrato entre negocio, equipo e IA. El
+        resultado es menos re-trabajo, código y documentación alineados, y
+        trazabilidad de lo que se construye.
+  attachments:
+    - assets/flyer-sdd-ai-sdlc.png
+
+segments:
+  - id: ai-governance
+    label: Gobernanza de IA, ISO 42001 y GRC
+    search_terms: ["gobernanza de la IA", "ISO 42001", "IA responsable compliance"]
+    complement_hint: Ellos cubren gobernanza y cumplimiento; nosotros llevamos esos controles a los equipos que construyen software.
+  - id: agile-transformation
+    label: Agile coaches y transformación organizacional
+    search_terms: ["agile coach inteligencia artificial", "transformación ágil inteligencia artificial"]
+    complement_hint: Ellos trabajan el cambio y la cultura; nosotros aportamos la parte técnica dentro de los equipos.
+  - id: product-ba
+    label: Producto y business analysis
+    search_terms: ["product discovery IA", "business analysis requisitos IA"]
+    complement_hint: Ellos definen qué construir; SDD hace que el equipo y la IA construyan exactamente eso.
+  - id: appsec
+    label: Ciberseguridad y AppSec
+    search_terms: ["secure coding IA", "AppSec código generado por IA"]
+    complement_hint: Ellos aportan la seguridad; nosotros el proceso de desarrollo donde esos controles se aplican.
+  - id: cloud-partners
+    label: Partners de Microsoft, GitHub y AWS
+    search_terms: ["GitHub Copilot adopción", "AWS Partner IA generativa"]
+    complement_hint: Ellos llevan la plataforma al cliente; nosotros la práctica de AI-SDLC para sus equipos técnicos.
+
+qualification:
+  max_days_since_last_post: 30
+  require_offers_services: true
+  exclude_employers: [Accenture, Deloitte, KPMG, PwC, EY, IBM, Capgemini]
+  exclude_if_offers: [desarrollo de software a medida, software factory, consultoría de IA para desarrolladores]
+
+geography:
+  countries: [Argentina, Uruguay, Chile, Colombia, Perú, México, Costa Rica, Ecuador, España]
+
+language:
+  locale: es
+  voseo_countries: [Argentina, Uruguay]
+
+channels:
+  email: true
+  linkedin_dm: true
+  max_paid_messages_per_run: 5
+  max_messages_per_day: 25
+
+templates:
+  email: templates/outreach
+  linkedin_dm: templates/outreach
+  follow_up: templates/follow-up
+
+follow_up_after_days: 10
+
+call_to_action:
+  tu: ¿Te interesaría una llamada de 20–30 minutos para conocernos y ver si hay oportunidades de colaborar o referirnos clientes?
+  voseo: ¿Te interesaría una llamada de 20–30 minutos para conocernos y ver si hay oportunidades de colaborar o referirnos clientes?
+
+complement_prefix: Creo que nuestros enfoques se complementan.

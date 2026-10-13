@@ -1,0 +1,17 @@
+Hola $first_name, ¿cómo estás?
+$attention_line
+$opener
+
+$intro $offer_summary
+
+$offer_lines_heading
+
+$offer_lines
+
+$complement
+
+$call_to_action
+
+Saludos,
+$sender_name
+$calendar_line

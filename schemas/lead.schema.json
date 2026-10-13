@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Modern-Ash/olivia/schemas/lead.schema.json",
+  "title": "OLIVIA lead",
+  "description": "One prospect row. Mirrors the outreach registry sheet so any office suite can hold it.",
+  "type": "object",
+  "required": [
+    "lead_id",
+    "segment",
+    "name",
+    "country",
+    "channel",
+    "opener",
+    "complement",
+    "status"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "lead_id": {
+      "type": "string"
+    },
+    "segment": {
+      "type": "string"
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "high",
+        "normal",
+        "low"
+      ],
+      "default": "normal"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "first_name": {
+      "type": "string"
+    },
+    "organization": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "channel": {
+      "enum": [
+        "email",
+        "linkedin_dm"
+      ]
+    },
+    "email": {
+      "type": "string"
+    },
+    "email_is_generic": {
+      "description": "True for info@, contacto@ and similar shared inboxes.",
+      "type": "boolean",
+      "default": false
+    },
+    "email_source_url": {
+      "description": "Where the address was published. Guessed addresses are not allowed.",
+      "type": "string"
+    },
+    "linkedin_url": {
+      "type": "string"
+    },
+    "identity_verified": {
+      "description": "Name, headline and organization were cross-checked against the profile.",
+      "type": "boolean",
+      "default": false
+    },
+    "evidence_url": {
+      "type": "string"
+    },
+    "evidence_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "evidence_summary": {
+      "description": "What the person actually published, in one sentence. The opener must be grounded in it.",
+      "type": "string"
+    },
+    "opener": {
+      "type": "string"
+    },
+    "complement": {
+      "type": "string"
+    },
+    "subject": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "discovered",
+        "qualified",
+        "drafted",
+        "approved",
+        "sent",
+        "replied",
+        "meeting",
+        "won",
+        "lost",
+        "opted_out"
+      ]
+    },
+    "sent_at": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,45 @@
+# Example: the same engine hunting a different kind of opportunity (a job).
+# Shows that nothing in OLIVIA is specific to partnerships.
+id: example-job-search
+kind: jobs
+
+sender:
+  name: Nombre Apellido
+  title: Staff GenAI Engineer
+  email: nombre@example.com
+  location: Buenos Aires
+
+offer:
+  summary: >-
+    Lidero la integración de IA generativa en el ciclo de desarrollo de equipos grandes.
+  lines_heading: 'En concreto:'
+  lines:
+    - name: Experiencia
+      pitch: más de 20 años en desarrollo de software y liderazgo técnico.
+    - name: Foco actual
+      pitch: orquestación de agentes de IA integrados al SDLC.
+
+segments:
+  - id: hiring-managers
+    label: Hiring managers de plataformas de IA
+    search_terms: ["hiring GenAI engineer", "buscamos AI engineer"]
+    complement_hint: El equipo busca escalar IA en desarrollo; esa es mi especialidad.
+
+qualification:
+  max_days_since_last_post: 14
+  require_offers_services: false
+
+geography:
+  countries: [Argentina, España]
+
+language:
+  locale: es
+
+templates:
+  email: templates/outreach
+
+follow_up_after_days: 7
+
+call_to_action:
+  tu: ¿Tendrías 20 minutos esta semana para conversar sobre el rol?
+  voseo: ¿Tendrías 20 minutos esta semana para charlar sobre el rol?

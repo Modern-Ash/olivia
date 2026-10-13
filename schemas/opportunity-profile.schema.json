@@ -1,0 +1,279 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Modern-Ash/olivia/schemas/opportunity-profile.schema.json",
+  "title": "OLIVIA opportunity profile",
+  "description": "Describes what kind of opportunity to hunt, who qualifies, and how to talk to them.",
+  "type": "object",
+  "required": [
+    "id",
+    "kind",
+    "sender",
+    "offer",
+    "segments",
+    "geography",
+    "language",
+    "templates",
+    "call_to_action"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "kind": {
+      "description": "Type of opportunity being searched for.",
+      "enum": [
+        "clients",
+        "partners",
+        "jobs",
+        "investors",
+        "tenders",
+        "other"
+      ]
+    },
+    "sender": {
+      "type": "object",
+      "required": [
+        "name",
+        "email"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "organization": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "location": {
+          "type": "string"
+        },
+        "calendar_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "signature": {
+          "type": "string"
+        }
+      }
+    },
+    "offer": {
+      "type": "object",
+      "required": [
+        "summary",
+        "lines"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "summary": {
+          "type": "string"
+        },
+        "lines": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "name",
+              "pitch"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "pitch": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "attachments": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "lines_heading": {
+          "type": "string",
+          "description": "Sentence introducing the offer lines. Defaults to 'Trabajamos en N líneas:'."
+        }
+      }
+    },
+    "segments": {
+      "description": "Ordered by priority (first = highest).",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "label",
+          "search_terms"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "search_terms": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1
+          },
+          "complement_hint": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "qualification": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "max_days_since_last_post": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 30
+        },
+        "require_offers_services": {
+          "type": "boolean",
+          "default": true
+        },
+        "exclude_employers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "exclude_if_offers": {
+          "description": "Services that make a prospect a competitor rather than an opportunity.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "geography": {
+      "type": "object",
+      "required": [
+        "countries"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "countries": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        }
+      }
+    },
+    "language": {
+      "type": "object",
+      "required": [
+        "locale"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "locale": {
+          "type": "string"
+        },
+        "voseo_countries": {
+          "description": "Countries where the voseo register is used. Everyone else gets tú.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "Argentina",
+            "Uruguay"
+          ]
+        }
+      }
+    },
+    "channels": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "email": {
+          "type": "boolean",
+          "default": true
+        },
+        "linkedin_dm": {
+          "type": "boolean",
+          "default": true
+        },
+        "max_paid_messages_per_run": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 5
+        },
+        "max_messages_per_day": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 25
+        }
+      }
+    },
+    "templates": {
+      "type": "object",
+      "required": [
+        "email"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "linkedin_dm": {
+          "type": "string"
+        },
+        "follow_up": {
+          "type": "string"
+        }
+      }
+    },
+    "follow_up_after_days": {
+      "type": "integer",
+      "minimum": 1,
+      "default": 10
+    },
+    "call_to_action": {
+      "description": "Closing ask, per register. Lets each opportunity kind ask for the right thing.",
+      "type": "object",
+      "required": [
+        "tu",
+        "voseo"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "tu": {
+          "type": "string"
+        },
+        "voseo": {
+          "type": "string"
+        }
+      }
+    },
+    "complement_prefix": {
+      "description": "Optional sentence placed before each lead's complement paragraph.",
+      "type": "string"
+    }
+  }
+}
