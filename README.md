@@ -8,13 +8,14 @@ Nació de una campaña real de ModernAsh en octubre de 2026. En esa campaña se 
 
 ## Cómo funciona
 
+```mermaid
+flowchart LR
+    P["Perfil de oportunidad (YAML)"] --> D["1. Discover<br/>skills"]
+    D --> Q["2. Qualify<br/>skills"] --> V["3. Verify<br/>guardrails"] --> Z["4. Personalize<br/>render + guardrails"]
+    Z --> A["5. Approve<br/>humano"] --> S["6. Send<br/>adapters"] --> L["7. Log<br/>registry"] --> F["8. Follow-up<br/>scheduler"]
 ```
-Perfil de oportunidad (YAML)
-        │
-        ▼
- 1. Discover ──► 2. Qualify ──► 3. Verify ──► 4. Personalize ──► 5. Approve ──► 6. Send ──► 7. Log ──► 8. Follow-up
-   (skills)       (skills)      (guardrails)    (render + guardrails)  (humano)      (adapters)  (registry)  (scheduler)
-```
+
+La integración con Copilot y la extensión Chrome/Edge está en [docs/BROWSER-EXTENSION.md](docs/BROWSER-EXTENSION.md).
 
 | Capa | Qué es | Dónde está |
 |---|---|---|
